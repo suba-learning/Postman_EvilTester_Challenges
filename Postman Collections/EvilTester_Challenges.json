@@ -1,0 +1,1887 @@
+{
+	"info": {
+		"_postman_id": "c0f4b774-0048-4aec-b953-67b0447a7d88",
+		"name": "Challenges",
+		"schema": "https://schema.postman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Getting Started",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"X-Challenger\");",
+							"});",
+							"",
+							"responseheaders = pm.response.headers.get(\"X-Challenger\")",
+							"console.log(responseheaders)",
+							"pm.collectionVariables.set(\"X-Challenger\",responseheaders)"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "5f0bcfba-186e-4f65-a770-03f5aa273e6d"
+					}
+				}
+			],
+			"id": "0ca017e5-fab2-4105-829d-223f83ab7b04",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "https://apichallenges.herokuapp.com/challenger"
+			},
+			"response": []
+		},
+		{
+			"name": "First Real Challenge",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "36f20ec2-a533-4e6d-9b95-4c2c7c31c348"
+					}
+				}
+			],
+			"id": "1f6aae14-fc8b-4356-840f-52ac7f53a6ef",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": "{{baseURL}}/challenges"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Challenges -todos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "e7976329-23e1-4aca-ba84-855786a9ad09"
+					}
+				}
+			],
+			"id": "e1198ee0-ad7b-4304-af2f-4dad070ddb8f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "REWORK Challenges -todos XML prefered",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "3107a1ef-5c75-4e85-879f-81de391e39ab"
+					}
+				}
+			],
+			"id": "b793479e-6077-4e50-81e1-685a4e226a39",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml, application/JSON"
+					}
+				],
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Challenges -todos Invalid Accept",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 406\", function () {",
+							"    pm.response.to.have.status(406);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "a158fbd9-c1e2-4139-afe3-43298548d80b"
+					}
+				}
+			],
+			"id": "ca69742f-659d-430d-9b71-b7707d261178",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/graphql"
+					}
+				],
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Challenges -todos JSON",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "4dac0416-8e00-4859-a0c8-375055986751"
+					}
+				}
+			],
+			"id": "cec72ea6-73cc-485b-8ff0-bdf9c0bffac7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Challenges -todos ANY",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "13957d6d-aed2-408d-a0c6-dd724aa88be6"
+					}
+				}
+			],
+			"id": "0dd79e8c-bf0a-47d2-a9cd-ddc1e2e7d90e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Challenges -todo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "cd09ad18-63e5-4bd8-afbd-d8a0fccd077c"
+					}
+				}
+			],
+			"id": "526b9d47-52c3-4977-bf13-3846ec1a0147",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": "{{baseURL}}/todo"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Challenges -todos id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "d7027d69-0270-4a9c-b992-dc6a3c53616a"
+					}
+				}
+			],
+			"id": "d9efbedc-95e1-4b81-9044-773e2c779eab",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": "{{baseURL}}/todos/7"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Challenges -todos  nonexisting id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "7fd3831a-2425-48be-8588-55f65215d477"
+					}
+				}
+			],
+			"id": "efba82e6-69fa-4ab0-b4e3-9fb7a7c343cd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": "{{baseURL}}/todos/79"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Challenges -todos  query parameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//todos[0].doneStatus",
+							"pm.test(\"Check result for done\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData)",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "c5461ecc-7387-444a-b347-0b0675cfcb4d"
+					}
+				}
+			],
+			"id": "9c7a59d3-41c2-48c1-b46e-16390b4b37f6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseURL}}/todos?doneStatus=true",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"todos"
+					],
+					"query": [
+						{
+							"key": "doneStatus",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HEAD todo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "522abb9c-311a-4a9b-b768-6ff4bd024e6d"
+					}
+				}
+			],
+			"id": "c7a6fab0-b0d4-44c2-ad35-dba341a478c5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "HEAD",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Todo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "138bc5aa-01df-4f73-a931-19926ebee77a"
+					}
+				}
+			],
+			"id": "a1bc8881-d24a-41a7-886d-fdaea57e1403",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"create todo schedule client call\",\n    \"doneStatus\": true,\n    \"description\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Todo XML",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "f35ea8bc-8556-4bef-bf63-efe05319fc21"
+					}
+				}
+			],
+			"id": "2880525b-5db0-47e6-9cb7-cfa897d80b2f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<todo>\n        <doneStatus>false</doneStatus>\n        <description/>\n        <title>train staff</title>\n</todo>\n    ",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Todo POST XML accept JSON",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "1648080c-4070-44b6-9115-4b3b36499b78"
+					}
+				}
+			],
+			"id": "29a2c73f-864d-4354-a71a-b99da57ee886",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<todo>\n        <doneStatus>false</doneStatus>\n        <description/>\n        <title>train staff</title>\n</todo>\n    ",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Todo POST JSON accept XML",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "4bd08b25-752f-4316-abe0-40780b8aa580"
+					}
+				}
+			],
+			"id": "9ac39a68-ee23-43cc-9dcf-75e22a855c15",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"create todo schedule client call\",\n    \"doneStatus\": true,\n    \"description\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Todo Invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "21cfad47-6e06-4c60-a619-a9c9e6c21cd2"
+					}
+				}
+			],
+			"id": "8882a5ca-bc2e-4f17-b0fe-b0dd49b0341b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/pdf"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<todo>\n        <doneStatus>false</doneStatus>\n        <description/>\n        <title>train staff</title>\n</todo>\n    ",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Todo with ID REWORK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "54324818-8e36-4913-8497-56c9bd3def24"
+					}
+				}
+			],
+			"id": "91ce323b-e048-40bf-b8c6-06573c2f6361",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Updating id 7\",\n    \"doneStatus\": true,\n    \"description\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/todos/7"
+			},
+			"response": []
+		},
+		{
+			"name": "Todo invalid DoneState",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "e8831ae2-d224-458b-8e39-df47c7c795c8"
+					}
+				}
+			],
+			"id": "503b12f4-aa77-4fd1-b718-2ff08c4c5462",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"create todo schedule client call\",\n    \"doneStatus\": \"test\",\n    \"description\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Todo incorrect title length",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "f683d269-b1ec-4a24-91f9-11daaa54cc73"
+					}
+				}
+			],
+			"id": "e93d6793-2e18-4c11-84b8-c626ba323875",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"create todo schedule client call create todo schedule client call create todo schedule client call create todo schedule client call\",\n    \"doneStatus\": true,\n    \"description\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Todo iMax title length",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "437933ef-0103-4777-960a-0f2d27356f53"
+					}
+				}
+			],
+			"id": "afb8eb0d-1ba1-4d47-9ff3-1c3dec6d46f6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"create todo schedule client call56789095778859788l\",\n    \"doneStatus\": true,\n    \"description\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Todo incorrect JSON fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "a1ba6086-5804-40dd-a8f2-bd4c12ae5d76"
+					}
+				}
+			],
+			"id": "93369992-a84b-4df3-bd70-2c2fdf41dc77",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"create todo schedule client call56789095778859788l\",\n    \"doneStatus\": true,\n    \"description\": \"\",\n    \"dateofCompletion\": \"10-10-2024\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Todo payload Max length REWORK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "8a2ede52-e0b7-404e-a658-c9d3df8f6a94"
+					}
+				}
+			],
+			"id": "b4e53d05-2010-4346-985a-e746e2ba2b8f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"create todo schedule client call56789095778859788l\",\n    \"doneStatus\": true,\n    \"description\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Todo description too long REWORK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "d6be89dc-461d-480e-8f5f-c35da50cd5db"
+					}
+				}
+			],
+			"id": "1e91d830-3cf0-4203-a475-7e871dfcca43",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"create todo schedule\",\n    \"doneStatus\": true,\n    \"description\": \"1234567890123\",\n    \"da\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}todos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Challenges -todos id Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "6d753f45-b006-453c-ae04-71ed9344dbf2"
+					}
+				}
+			],
+			"id": "b6ede162-aa4b-4e26-84a9-be355ebdaacd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": "{{baseURL}}/todos/7"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE not allowed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "23ed3337-088f-4a78-bdde-f09829cf94bc"
+					}
+				}
+			],
+			"id": "0d8a3ed3-4a29-4697-8e1d-934a157f4ca0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": "{{baseURL}}/heartbeat"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Internal Server Error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 500\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "1f35648e-9ac9-4119-902f-b44b6b6ac1ab"
+					}
+				}
+			],
+			"id": "ebd42156-176f-40d1-9630-a7113a8db611",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": "{{baseURL}}/heartbeat"
+			},
+			"response": []
+		},
+		{
+			"name": "TRACE Not Implemented",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 501\", function () {",
+							"    pm.response.to.have.status(501);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "1859c07d-0fcf-4fe2-9fbc-cd9a8a0a761d"
+					}
+				}
+			],
+			"id": "cc9622df-f111-4830-aa67-eece4f6ba299",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "TRACE",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": "{{baseURL}}/heartbeat"
+			},
+			"response": []
+		},
+		{
+			"name": "GET 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "bb6095fb-67ec-498b-a363-0787518f7b1f"
+					}
+				}
+			],
+			"id": "7c3072f8-08ed-4140-b636-dd02b9ec7cd8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": "{{baseURL}}/heartbeat"
+			},
+			"response": []
+		},
+		{
+			"name": "OPTIONS-todos REWORK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "fa4b935f-48db-44ac-8247-152c510b20ed"
+					}
+				}
+			],
+			"id": "9b554e60-3f72-4f47-91f8-c4d269667728",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "OPTIONS",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					}
+				],
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Challenges -todos XML",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "48b203b7-c440-4fe2-a048-ea404d6b914e"
+					}
+				}
+			],
+			"id": "3d11f72b-cb48-498e-b60a-717cabd2340c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					}
+				],
+				"url": "{{baseURL}}/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Authentication Challange",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "5a87fabd-38b3-4997-84a8-0f5508cd72cb"
+					}
+				}
+			],
+			"id": "3ec580b1-64c3-46bf-b673-8980e6675ab4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "Pa55word",
+						"username": "Admin1"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/secret/token"
+			},
+			"response": []
+		},
+		{
+			"name": "Authentication Challenge success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"responseheaders = pm.response.headers.get(\"X-Auth-Token\")",
+							"console.log(responseheaders)",
+							"pm.collectionVariables.set(\"X-AuthToken\",responseheaders)",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "9383c388-1ff8-4bf0-9f98-eec9c77057e3"
+					}
+				}
+			],
+			"id": "e4a26f10-d02f-46fe-b503-56ef1774e2bd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "admin",
+						"password": "password"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/secret/token"
+			},
+			"response": []
+		},
+		{
+			"name": "Forbidden 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "3499bf05-5a17-4e7a-b0fd-02d3337b85ac"
+					}
+				}
+			],
+			"id": "9cbb8623-a948-403b-93df-69b25447c288",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "admin",
+						"password": "password"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					},
+					{
+						"key": "X-AUTH-TOKEN",
+						"value": "e239d244-fe66-4de1-a127-34928701a400"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/secret/note"
+			},
+			"response": []
+		},
+		{
+			"name": "Unauthorized 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "ce0ebf9c-7315-45b4-ba7b-8a2519d01d81"
+					}
+				}
+			],
+			"id": "819e3daf-30fe-42be-af47-bb8b2ec9c137",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "admin",
+						"password": "password"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/secret/note"
+			},
+			"response": []
+		},
+		{
+			"name": "Authorized GET 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "876633ed-5734-4cb0-8472-6ca32dc38753"
+					}
+				}
+			],
+			"id": "421e41ab-11cf-4eb5-b16e-f0ac2fdaf952",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "admin",
+						"password": "password"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-AuthToken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/secret/note"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Amend 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "a73102e2-8d22-4c79-bd2b-69ffca8bc9fc"
+					}
+				}
+			],
+			"id": "36e89bc5-536b-4919-a14a-e9653a970049",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "admin",
+						"password": "password"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-AuthToken}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"note\": \"my note is here Suba\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/secret/note"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Amend Invalid AUTHTOKEN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "039415e5-54ee-4e2d-a69b-9f1b4f2b2e17"
+					}
+				}
+			],
+			"id": "6e92e900-320e-4286-b7ff-5888bbab87ff",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "admin",
+						"password": "password"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "bob"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"note\": \"my note is here Suba\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/secret/note"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Amend no AUTH TOKEN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "c7c5ebe2-ae98-49ea-8d7d-40405456ae82"
+					}
+				}
+			],
+			"id": "4589fa7f-1259-429a-a15c-ab83f29f1e2c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "admin",
+						"password": "password"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-AuthToken}}",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"note\": \"my note is here Suba\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/secret/note"
+			},
+			"response": []
+		},
+		{
+			"name": "POST BearerToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "3f17c946-815e-4f2c-ba99-a0b8dbf792e9"
+					}
+				}
+			],
+			"id": "25054bb4-415f-491b-8862-8092e0b9b8e3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{X-AuthToken}}"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-AuthToken}}",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"note\": \"my note is here Bearer TOKEN\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/secret/note"
+			},
+			"response": []
+		},
+		{
+			"name": "GET BearerToken note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "54175e12-1a59-4aae-b668-7b12a7ac2cdb"
+					}
+				}
+			],
+			"id": "a800166c-7ad7-488a-b06e-48f10f9a3e55",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{X-AuthToken}}"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Challenger",
+						"value": "{{X-Challenger}}"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "{{X-AuthToken}}",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"note\": \"my note is here Bearer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/secret/note"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				],
+				"id": "ab7f227a-9a59-4bca-8f35-95329eef7120"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				],
+				"id": "58e71c99-5f81-476b-9dcb-4e3ad24d3400"
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "X-Challenger",
+			"value": ""
+		},
+		{
+			"key": "baseURL",
+			"value": "https://apichallenges.herokuapp.com",
+			"type": "string"
+		},
+		{
+			"key": "X-AuthToken",
+			"value": ""
+		}
+	]
+}
