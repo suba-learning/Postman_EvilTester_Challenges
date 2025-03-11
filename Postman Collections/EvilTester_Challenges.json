@@ -325,40 +325,6 @@
 			"response": []
 		},
 		{
-			"name": "GET Challenges -todos  nonexisting id",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 404\", function () {",
-							"    pm.response.to.have.status(404);",
-							"});",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {},
-						"id": "7fd3831a-2425-48be-8588-55f65215d477"
-					}
-				}
-			],
-			"id": "efba82e6-69fa-4ab0-b4e3-9fb7a7c343cd",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "X-Challenger",
-						"value": "{{X-Challenger}}"
-					}
-				],
-				"url": "{{baseURL}}/todos/79"
-			},
-			"response": []
-		},
-		{
 			"name": "GET Challenges -todos  query parameter",
 			"event": [
 				{
