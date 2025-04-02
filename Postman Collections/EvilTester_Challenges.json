@@ -1809,35 +1809,6 @@
 				"url": "{{baseURL}}/secret/note"
 			},
 			"response": []
-		},
-		{
-			"name": "https://thinking-tester-contact-list.herokuapp.com/users",
-			"id": "b5db41f0-d064-455a-9715-24d1a882f8c0",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{token}}"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"type": "text",
-							"key": "{\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\",\n    \"email\": \"test@fake.com\",\n    \"password\": \"myPassword\"\n}",
-							"value": ""
-						}
-					]
-				},
-				"url": "https://thinking-tester-contact-list.herokuapp.com/users",
-				"description": "Generated from cURL: curl --location 'https://thinking-tester-contact-list.herokuapp.com/users' \\\n--header 'Authorization: Bearer {{token}}' \\\n--data-raw '{\n    \"firstName\": \"Test\",\n    \"lastName\": \"User\",\n    \"email\": \"test@fake.com\",\n    \"password\": \"myPassword\"\n}'"
-			},
-			"response": []
 		}
 	],
 	"event": [
